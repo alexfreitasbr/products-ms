@@ -50,9 +50,10 @@ export class ProductsService {
   }
 
   async update(id: number, updateProductDto: UpdateProductDto) {
+    const { id: __, ...rest } = updateProductDto;
     return this.prisma.product.update({
       where: { id },
-      data: updateProductDto,
+      data: rest,
     });
   }
 
